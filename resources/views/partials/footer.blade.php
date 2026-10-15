@@ -40,124 +40,125 @@ $socials = [
 ];
 @endphp
 
-<footer class="relative grain overflow-hidden bg-[#26787C] text-white" data-testid="footer">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8 pt-12 pb-8 relative z-10">
-        <div class="rounded-[14px] bg-[#14666A] px-6 sm:px-10 py-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+<footer class="grain overflow-hidden" style="background: var(--green);" data-testid="footer">
+    <div class="wrap position-relative" style="z-index: 2; padding-top: 3rem; padding-bottom: 2rem;">
+        <div class="footer-cta-strip" data-testid="footer-consultation-strip">
             <div>
-                <p class="font-mono-brand text-[10px] uppercase tracking-[0.25em] text-[#FFE9E0] font-semibold mb-2">Have a Thought?</p>
-                <p class="font-display text-2xl sm:text-3xl font-extrabold tracking-tight">We Make Consultation <span class="font-serif-accent font-normal text-[#FFE9E0]">Simple</span></p>
+                <p class="kicker kicker-cream kicker-sm mb-2">Have a Thought?</p>
+                <p class="h-display c-white mb-0" style="color:#fff; font-size: clamp(24px, 2.4vw, 30px);">We Make Consultation <span class="font-serif-accent c-peach" style="font-weight:400;">Simple</span></p>
             </div>
-            <button data-open-enquiry data-testid="footer-book-slot-btn" class="shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-[#FE570F] px-8 py-4 text-sm font-bold text-white transition-transform duration-300 hover:scale-[1.04] active:scale-95">
-                <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+            <button data-open-enquiry data-testid="footer-book-slot-btn" class="btn-brand" style="border-radius:999px; padding: 1rem 2rem; flex-shrink: 0;">
+                <i data-lucide="graduation-cap" style="width:18px;height:18px;"></i>
                 <span>Book Your Slot</span>
             </button>
         </div>
-    </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-8 pt-6 pb-8 relative z-10">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-10 border-b border-white/20">
-            <div class="flex items-center gap-4">
-                <span class="grid place-items-center w-16 h-16 rounded-full bg-white shrink-0">
-                    <span class="grid place-items-center w-11 h-11 rounded-xl bg-gradient-to-br from-[#FE570F] to-[#DD4909]">
-                        <i data-lucide="graduation-cap" class="w-6 h-6 text-white"></i>
+        <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-4 pb-4 pt-5" style="border-bottom: 1px solid rgba(255,255,255,0.2);">
+            <div class="d-flex align-items-center gap-3">
+                <span class="logo-circle">
+                    <span class="brand-mark brand-mark-lg">
+                        <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                            <path d="M32 17 10 27l22 10 18-8.2V40h4V27L32 17z" fill="#fff"/>
+                            <path d="M20 34.5V43c0 3.6 5.6 7 12 7s12-3.4 12-7v-8.5l-12 5.6-12-5.6z" fill="#fff" opacity="0.82"/>
+                        </svg>
                     </span>
                 </span>
                 <div>
-                    <p class="font-display text-2xl font-extrabold tracking-tight leading-none">Leamss<span class="text-[#FFE9E0]">.</span></p>
-                    <p class="font-serif-accent text-[15px] text-white/85 mt-1">Ladhani Education &amp; Migration Services (OPC) Pvt. Ltd</p>
+                    <p class="font-display fw-bolder m-0" style="font-size:24px; letter-spacing:-0.02em; color:#fff;">Leamss<span class="c-peach">.</span></p>
+                    <p class="font-serif-accent m-0" style="font-size:15px; color:rgba(255,255,255,0.85);">Ladhani Education &amp; Migration Services (OPC) Pvt. Ltd</p>
                 </div>
             </div>
             <div>
-                <p class="font-display text-base font-bold text-white mb-3">Let's Connect</p>
-                <div class="flex items-center gap-2">
+                <p class="footer-heading">Let's Connect</p>
+                <div class="d-flex align-items-center gap-2">
                     @foreach ($socials as $s)
-                        <a href="{{ $s['href'] }}" target="_blank" rel="noopener noreferrer" aria-label="LEAMSS {{ $s['label'] }}" class="grid place-items-center w-8 h-8 rounded-full bg-white text-[#125D5F] transition-transform duration-300 hover:scale-110">
-                            <img src="https://cdn.simpleicons.org/{{ $s['icon'] }}/125D5F" class="w-4 h-4" alt="LEAMSS {{ $s['label'] }}">
+                        <a href="{{ $s['href'] }}" target="_blank" rel="noopener noreferrer" aria-label="LEAMSS {{ $s['label'] }}" class="social-circle social-circle-lg">
+                            <img src="https://cdn.simpleicons.org/{{ $s['icon'] }}/125D5F" alt="LEAMSS {{ $s['label'] }}">
                         </a>
                     @endforeach
                 </div>
             </div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-10 py-12">
+        <div class="footer-grid">
             <div>
-                <h4 class="font-display text-base font-bold text-white mb-4">Immigration</h4>
-                <p class="text-[13px] font-semibold text-[#FFE9E0] mb-2">Permanent Residency:</p>
-                <ul class="space-y-2 mb-5">
+                <h4 class="footer-heading">Immigration</h4>
+                <p class="footer-sub">Permanent Residency:</p>
+                <ul class="footer-links mb-4">
                     @foreach ($immigration['pr'] as $l)
-                        <li><a href="{{ $l['href'] }}" class="text-sm text-white/85 hover:text-[#FFE9E0] transition-colors">{{ $l['label'] }}</a></li>
+                        <li><a href="{{ $l['href'] }}">{{ $l['label'] }}</a></li>
                     @endforeach
                 </ul>
-                <p class="text-[13px] font-semibold text-[#FFE9E0] mb-2">Temporary Residency:</p>
-                <ul class="space-y-2">
+                <p class="footer-sub">Temporary Residency:</p>
+                <ul class="footer-links">
                     @foreach ($immigration['temp'] as $l)
-                        <li><a href="{{ $l['href'] }}" class="text-sm text-white/85 hover:text-[#FFE9E0] transition-colors">{{ $l['label'] }}</a></li>
+                        <li><a href="{{ $l['href'] }}">{{ $l['label'] }}</a></li>
                     @endforeach
                 </ul>
             </div>
 
             <div>
-                <h4 class="font-display text-base font-bold text-white mb-4">Study Abroad</h4>
-                <ul class="space-y-2">
+                <h4 class="footer-heading">Study Abroad</h4>
+                <ul class="footer-links">
                     @foreach ($studyAbroad as $l)
-                        <li><a href="{{ $l['href'] }}" class="text-sm text-white/85 hover:text-[#FFE9E0] transition-colors">{{ $l['label'] }}</a></li>
+                        <li><a href="{{ $l['href'] }}">{{ $l['label'] }}</a></li>
                     @endforeach
                 </ul>
             </div>
 
-            <div class="space-y-8">
+            <div class="d-flex flex-column gap-4">
                 <div>
-                    <h4 class="font-display text-base font-bold text-white mb-4">Coaching</h4>
-                    <ul class="space-y-2">
+                    <h4 class="footer-heading">Coaching</h4>
+                    <ul class="footer-links">
                         @foreach ($coaching as $l)
-                            <li><a href="{{ $l['href'] }}" class="text-sm text-white/85 hover:text-[#FFE9E0] transition-colors">{{ $l['label'] }}</a></li>
+                            <li><a href="{{ $l['href'] }}">{{ $l['label'] }}</a></li>
                         @endforeach
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-display text-base font-bold text-white mb-4">Courses</h4>
-                    <ul class="space-y-2">
-                        <li><a href="{{ url('/') }}" class="text-sm text-[#FFE9E0] font-semibold">Online Degree Courses</a></li>
+                    <h4 class="footer-heading">Courses</h4>
+                    <ul class="footer-links">
+                        <li><a href="{{ route('education.domestic') }}" style="color: var(--peach); font-weight: 600;">Online Degree Courses</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-display text-base font-bold text-white mb-4">Legal</h4>
-                    <ul class="space-y-2">
+                    <h4 class="footer-heading">Legal</h4>
+                    <ul class="footer-links">
                         @foreach ($legal as $l)
-                            <li><a href="{{ $l['href'] }}" class="text-sm text-white/85 hover:text-[#FFE9E0] transition-colors">{{ $l['label'] }}</a></li>
+                            <li><a href="{{ $l['href'] }}">{{ $l['label'] }}</a></li>
                         @endforeach
                     </ul>
                 </div>
             </div>
 
             <div>
-                <h4 class="font-display text-base font-bold text-white mb-4">Office Locations</h4>
-                <div class="flex gap-3 mb-6">
-                    <i data-lucide="map-pin" class="w-4 h-4 text-[#FFE9E0] shrink-0 mt-0.5"></i>
-                    <p class="text-sm text-white/85 leading-relaxed">Thane: Office no 10, Londhe compound, Laxmi chambers, Near goandevi Maidan, Opposite Dmart Ready, Thane West — 400602</p>
+                <h4 class="footer-heading">Office Locations</h4>
+                <div class="d-flex gap-3 mb-4">
+                    <i data-lucide="map-pin" class="c-peach flex-shrink-0" style="width:18px;height:18px;margin-top:3px;"></i>
+                    <p class="m-0" style="font-size:14px; color:rgba(255,255,255,0.85); line-height:1.65;">Thane: Office no 10, Londhe compound, Laxmi chambers, Near goandevi Maidan, Opposite Dmart Ready, Thane West — 400602</p>
                 </div>
-                <a href="tel:+917718882427" class="flex items-center gap-3 group mb-3" data-testid="footer-phone-link">
-                    <i data-lucide="phone" class="w-4 h-4 text-[#FFE9E0]"></i>
-                    <span class="font-mono-brand text-base font-bold text-white group-hover:text-[#FFE9E0] transition-colors">+91 77188 82427</span>
+                <a href="tel:+917718882427" class="d-flex align-items-center gap-3 mb-3 text-decoration-none" data-testid="footer-phone-link">
+                    <i data-lucide="phone" class="c-peach" style="width:18px;height:18px;"></i>
+                    <span class="font-mono-brand fw-bold text-white" style="font-size:16px;">+91 77188 82427</span>
                 </a>
-                <a href="mailto:info@leamss.com" class="flex items-center gap-3 group mb-6" data-testid="footer-email-link">
-                    <i data-lucide="mail" class="w-4 h-4 text-[#FFE9E0]"></i>
-                    <span class="text-sm text-white/85 group-hover:text-[#FFE9E0] transition-colors">info@leamss.com</span>
+                <a href="mailto:info@leamss.com" class="d-flex align-items-center gap-3 mb-4 text-decoration-none" data-testid="footer-email-link">
+                    <i data-lucide="mail" class="c-peach" style="width:18px;height:18px;"></i>
+                    <span style="font-size:14px; color:rgba(255,255,255,0.85);">info@leamss.com</span>
                 </a>
-                <h4 class="font-display text-base font-bold text-white mb-3">Free Calculators</h4>
-                <ul class="space-y-2">
+                <h4 class="footer-heading">Free Calculators</h4>
+                <ul class="footer-links">
                     @foreach ($calculators as $c)
-                        <li><a href="{{ $c['href'] }}" class="text-[13px] text-white/85 hover:text-[#FFE9E0] transition-colors">{{ $c['label'] }}</a></li>
+                        <li><a href="{{ $c['href'] }}" style="font-size:13px;">{{ $c['label'] }}</a></li>
                     @endforeach
                 </ul>
             </div>
         </div>
 
-        <div class="pt-6 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#14666A]/60 rounded-lg px-5 py-4">
-            <p class="text-xs text-white/90">© 2026 Ladhani Education &amp; Migration Services (OPC) Pvt. Ltd. All rights reserved.</p>
-            <div class="flex items-center gap-4">
-                <a href="https://leamss.com/Our-Services" class="text-xs text-white/90 hover:text-[#FFE9E0] transition-colors">Our Services</a>
-                <a href="https://leamss.com/UKIQ" class="text-xs text-white/90 hover:text-[#FFE9E0] transition-colors">UKIQ</a>
+        <div class="footer-bottom">
+            <p>© 2026 Ladhani Education &amp; Migration Services (OPC) Pvt. Ltd. All rights reserved.</p>
+            <div class="d-flex align-items-center gap-4">
+                <a href="https://leamss.com/Our-Services">Our Services</a>
+                <a href="https://leamss.com/UKIQ">UKIQ</a>
             </div>
         </div>
     </div>

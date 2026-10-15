@@ -10,10 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/app.css') }}">
 </head>
-<body class="bg-[#FBFBFB] text-[#0F0F11] font-body overflow-x-hidden" data-open-enquiry-on-load="{{ (session('enquiry_success') || $errors->enquiry->any()) ? '1' : '0' }}">
+<body data-open-enquiry-on-load="{{ (session('enquiry_success') || $errors->enquiry->any()) ? '1' : '0' }}">
     @include('partials.header')
     <main>
         @yield('content')
@@ -22,9 +22,8 @@
     @include('partials.floating-buttons')
     @include('partials.modals')
 
-    {{-- session toast --}}
     @if (session('enquiry_success'))
-        <div class="toast" data-testid="session-toast">{{ session('enquiry_success') }}</div>
+        <p class="toast-brand" data-testid="session-toast">{{ session('enquiry_success') }}</p>
     @endif
 
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>

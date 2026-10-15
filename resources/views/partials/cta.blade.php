@@ -1,26 +1,29 @@
-<section class="bg-[#FBFBFB] pb-24 sm:pb-28 px-4 sm:px-8" data-testid="cta-section">
-    <div class="max-w-7xl mx-auto relative grain overflow-hidden rounded-[14px] bg-[#26787C] px-6 py-16 sm:px-14 sm:py-20">
-        <span class="absolute top-0 left-0 w-72 h-72 pointer-events-none" style="clip-path: polygon(0 0, 0% 100%, 100% 0); background-color: #146468;"></span>
-        <div class="absolute -bottom-32 -right-24 w-[420px] h-[420px] rounded-full bg-[#14666A]/60 blur-[120px] pointer-events-none"></div>
-        <div class="absolute -top-24 right-1/4 w-[320px] h-[320px] rounded-full bg-[#FE570F]/25 blur-[110px] pointer-events-none"></div>
-        <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-10">
-            <div class="max-w-2xl">
-                <p class="font-mono-brand text-xs uppercase tracking-[0.25em] text-[#FFE9E0] font-semibold mb-4">Free 1-on-1 Counselling</p>
-                <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.08] text-white">
-                    Not sure which degree <span class="font-serif-accent font-normal text-[#FFE9E0]">fits your career?</span>
-                </h2>
-                <p class="text-white/80 mt-5 text-[15px] leading-relaxed max-w-lg">
-                    Book a free consultation slot — get expert guidance on university selection, fees, EMI options and the admission procedure, tailored to your goals.
-                </p>
-            </div>
-            <div class="flex flex-col sm:flex-row lg:flex-col gap-4 shrink-0">
-                <button data-open-enquiry data-testid="cta-book-slot-btn" class="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-bold text-[#0F0F11] bg-white transition-transform duration-300 hover:scale-[1.04] active:scale-95">
-                    <i data-lucide="graduation-cap" class="w-4 h-4 text-[#FE570F]"></i>
-                    <span>Book Your Slot</span>
-                </button>
-                <button type="button" data-open-brochure data-testid="cta-brochure-btn" class="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-bold text-white border border-white/50 transition-all duration-300 hover:bg-white hover:text-[#26787C]">
-                    <span>Download Brochure</span>
-                </button>
+<section class="bg-paper px-4 px-sm-5" style="padding-bottom: 6rem;" data-testid="cta-section">
+    <div class="wrap">
+        <div class="grain position-relative overflow-hidden panel-teal" style="border-radius:14px; padding: 4rem 2.5rem;">
+            <span class="clip-corner clip-corner-tl"></span>
+            <span class="blob blob-teal" style="bottom:-8rem; right:-6rem; width:420px; height:420px;"></span>
+            <span class="blob blob-orange" style="top:-6rem; right:25%; width:320px; height:320px; opacity:0.5;"></span>
+            <div class="position-relative d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-5" style="z-index:2;">
+                <div style="max-width:42rem;">
+                    <p class="kicker kicker-cream mb-3">Free 1-on-1 Counselling</p>
+                    <h2 class="h-display text-white m-0 h2-section" style="color:#fff;">
+                        Not sure which degree <span class="font-serif-accent c-peach" style="font-weight:400;">fits your career?</span>
+                    </h2>
+                    <p class="mt-4 mb-0" style="color:rgba(255,255,255,0.8); font-size:15px; line-height:1.7; max-width:30rem;">
+                        Book a free consultation slot — get expert guidance on university selection, fees, EMI options and the admission procedure, tailored to your goals.
+                    </p>
+                </div>
+                <div class="d-flex flex-column flex-sm-row flex-lg-column gap-3 flex-shrink-0">
+                    <button data-open-enquiry data-testid="cta-book-slot-btn" class="btn-white-c">
+                        <i data-lucide="graduation-cap" class="c-orange" style="width:18px;height:18px;"></i>
+                        <span>Book Your Slot</span>
+                    </button>
+                    <button type="button" data-open-brochure data-testid="cta-brochure-btn" class="btn-outline-light-c" style="background:transparent; color:#fff; border-color:rgba(255,255,255,0.5);"
+                        onmouseover="this.style.background='#fff';this.style.color='#26787C'" onmouseout="this.style.background='transparent';this.style.color='#fff'">
+                        <span>Download Brochure</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
