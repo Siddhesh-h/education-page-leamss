@@ -73,7 +73,11 @@ $socials = [
                 <div class="d-flex align-items-center gap-2">
                     @foreach ($socials as $s)
                         <a href="{{ $s['href'] }}" target="_blank" rel="noopener noreferrer" aria-label="LEAMSS {{ $s['label'] }}" class="social-circle social-circle-lg">
-                            <img src="https://cdn.simpleicons.org/{{ $s['icon'] }}/125D5F" alt="LEAMSS {{ $s['label'] }}">
+                            @if ($s['label'] === 'LinkedIn')
+                                <i data-lucide="linkedin" style="width:16px;height:16px;color:#125D5F;"></i>
+                            @else
+                                <img src="https://cdn.simpleicons.org/{{ $s['icon'] }}/125D5F" alt="LEAMSS {{ $s['label'] }}">
+                            @endif
                         </a>
                     @endforeach
                 </div>

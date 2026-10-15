@@ -215,6 +215,12 @@ body {
 .chip-glass { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.25); color: #fff; cursor: default; }
 .chip-static { cursor: default; }
 .chip-static:hover { border-color: var(--line-soft); color: #424242; }
+.chip-wrap { white-space: normal; }
+
+/* flex min-width guard: hero wrap is a flex child and must never grow past the viewport */
+.hero-section > .wrap, .detail-hero-pad > .wrap { width: 100%; min-width: 0; }
+/* .wrap pads 1rem/2rem — match direct Bootstrap row gutters so negative margins never overflow the viewport */
+.wrap > .row { --bs-gutter-x: 2rem; }
 .chip-glass:hover { border-color: rgba(255,255,255,.25); color: #fff; }
 .chip-teal-text { color: var(--green); border-color: rgba(135, 135, 135, 0.5); }
 .chip-teal-text:hover { color: var(--orange); border-color: var(--orange); }
@@ -824,6 +830,87 @@ body {
 .breadcrumb-c a:hover { color: var(--orange); }
 .breadcrumb-c .sep { margin-inline: 8px; color: var(--line-soft); }
 .breadcrumb-c .current { color: var(--orange); }
+
+/* ---------- home page ---------- */
+.home-tabs { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.home-tab {
+    border-radius: 999px;
+    padding: 0.85rem 1.75rem;
+    font-weight: 700;
+    font-size: 14px;
+    background: #fff;
+    color: var(--ink);
+    border: 1px solid var(--line-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.home-tab i, .home-tab svg { width: 17px; height: 17px; }
+.home-tab:hover { border-color: var(--orange); color: var(--orange); }
+.home-tab.home-tab-active {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: #fff;
+    box-shadow: 0 8px 24px -8px rgba(254, 87, 15, 0.5);
+}
+.home-tab.home-tab-active:hover { color: #fff; }
+.home-panel[hidden] { display: none !important; }
+
+.country-card { display: block; text-decoration: none; height: 100%; }
+.country-media { position: relative; height: 180px; overflow: hidden; }
+.country-media > img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
+.country-card:hover .country-media > img { transform: scale(1.07); }
+.country-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 15, 17, 0.45), transparent 55%); }
+.country-flag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 34px;
+    height: 24px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background: #fff;
+    z-index: 2;
+}
+.country-flag img { width: 100%; height: 100%; object-fit: cover; }
+.country-badge {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--ink);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 4px 10px;
+}
+.country-body { padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.country-title { font-family: "Bricolage Grotesque", sans-serif; font-size: 20px; font-weight: 800; letter-spacing: -0.01em; color: var(--ink); margin: 0; }
+.country-link {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+.country-link svg, .country-link i { width: 14px; height: 14px; }
+.country-card:hover .country-link { color: var(--orange); }
+
+.partner-logo { height: 44px; width: auto; object-fit: contain; filter: grayscale(1); opacity: 0.75; transition: all 0.3s ease; }
+.marquee-item:hover .partner-logo { filter: none; opacity: 1; }
 
 @media (prefers-reduced-motion: reduce) {
     .marquee-track, .animate-float, .animate-ping-dot, .animate-blink, .mask-line > span { animation: none; }

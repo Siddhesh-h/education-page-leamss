@@ -188,9 +188,29 @@
                 activeRegion = chip.getAttribute("data-region-chip");
                 document.querySelectorAll("[data-region-chip]").forEach(function (c) {
                     var active = c === chip;
-                    c.className = "shrink-0 rounded-full px-4 py-1.5 text-xs font-semibold tracking-wide transition-all duration-300 " + (active ? "bg-[#26787C] text-white shadow-md shadow-[#26787C]/30" : "bg-white border border-[#B7B7B7] text-[#424242] hover:border-[#26787C] hover:text-[#26787C]");
+                    c.classList.toggle("chip-teal-active", active);
+                    c.classList.toggle("chip-active", false);
                 });
                 applyDestFilter();
+            });
+        });
+    }
+
+    // home page tabs (Migration / Education)
+    var homeTabs = document.querySelectorAll("[data-home-tab]");
+    var homePanels = document.querySelectorAll("[data-home-panel]");
+    if (homeTabs.length && homePanels.length) {
+        homeTabs.forEach(function (tab) {
+            tab.addEventListener("click", function () {
+                var target = tab.getAttribute("data-home-tab");
+                homeTabs.forEach(function (t) {
+                    var on = t === tab;
+                    t.classList.toggle("home-tab-active", on);
+                    t.setAttribute("aria-selected", on ? "true" : "false");
+                });
+                homePanels.forEach(function (p) {
+                    p.hidden = p.getAttribute("data-home-panel") !== target;
+                });
             });
         });
     }
