@@ -18,7 +18,7 @@ $nav = [
         ['label' => 'IELTS Coaching', 'href' => 'https://leamss.com/coaching/ielts-english'],
         ['label' => 'Spoken English', 'href' => 'https://leamss.com/coaching/spoken-english'],
     ]],
-    ['label' => 'Courses', 'href' => '#catalog', 'active' => true, 'dropdown' => [
+    ['label' => 'Courses', 'href' => request()->routeIs('education.domestic') ? '#catalog' : route('education.domestic').'#catalog', 'active' => true, 'dropdown' => [
         ['label' => 'Online Degree Courses', 'href' => '#catalog'],
     ]],
     ['label' => 'Migrate', 'href' => 'https://leamss.com/migrate'],

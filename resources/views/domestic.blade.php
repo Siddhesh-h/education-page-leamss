@@ -178,7 +178,7 @@ $marqueeItems = [
         </div>
     </div>
 
-    <form id="filter-form" method="GET" action="{{ route('home') }}" data-testid="sticky-filter-bar" class="sticky top-[60px] sm:top-[64px] z-40 border-y border-[#E8E8E8] bg-white/90 backdrop-blur-xl">
+    <form id="filter-form" method="GET" action="{{ route('education.domestic') }}" data-testid="sticky-filter-bar" class="sticky top-[60px] sm:top-[64px] z-40 border-y border-[#E8E8E8] bg-white/90 backdrop-blur-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex flex-col gap-3">
             <div class="flex flex-col sm:flex-row gap-3">
                 <div class="relative flex-1">
@@ -233,7 +233,7 @@ $marqueeItems = [
             <div class="rounded-[14px] border-2 border-dashed border-[#B7B7B7] bg-white/70 py-20 text-center" data-testid="catalog-empty-state">
                 <p class="font-display text-2xl font-bold mb-2">No courses match your filters</p>
                 <p class="text-[#696969] text-sm mb-6">Try a different keyword, university or degree type.</p>
-                <a href="{{ route('home') }}" class="btn-brand inline-flex rounded-full px-6 py-3 text-sm font-semibold"><span>Reset all filters</span></a>
+                <a href="{{ route('education.domestic') }}" class="btn-brand inline-flex rounded-full px-6 py-3 text-sm font-semibold"><span>Reset all filters</span></a>
             </div>
         @else
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

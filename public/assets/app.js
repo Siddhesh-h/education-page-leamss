@@ -157,6 +157,44 @@
         });
     }
 
+    // destination search (international page)
+    var destSearch = document.querySelector("[data-destination-search]");
+    var destGrid = document.querySelector("[data-destination-grid]");
+    if (destSearch && destGrid) {
+        var activeRegion = "All";
+        var countEl = document.querySelector("[data-destination-count]");
+        var emptyEl = document.querySelector("[data-destination-empty]");
+        var cards = destGrid.querySelectorAll("[data-destination-card]");
+
+        var applyDestFilter = function () {
+            var q = (destSearch.value || "").trim().toLowerCase();
+            var shown = 0;
+            cards.forEach(function (card) {
+                var matchRegion = activeRegion === "All" || card.getAttribute("data-region") === activeRegion;
+                var matchQ = !q || (card.getAttribute("data-name") || "").indexOf(q) !== -1;
+                var show = matchRegion && matchQ;
+                card.style.display = show ? "" : "none";
+                if (show) shown++;
+            });
+            if (countEl) countEl.textContent = "SHOWING " + shown + " DESTINATIONS";
+            if (emptyEl) emptyEl.classList.toggle("hidden", shown > 0);
+            destGrid.classList.toggle("hidden", shown === 0);
+        };
+
+        destSearch.addEventListener("input", applyDestFilter);
+
+        document.querySelectorAll("[data-region-chip]").forEach(function (chip) {
+            chip.addEventListener("click", function () {
+                activeRegion = chip.getAttribute("data-region-chip");
+                document.querySelectorAll("[data-region-chip]").forEach(function (c) {
+                    var active = c === chip;
+                    c.className = "shrink-0 rounded-full px-4 py-1.5 text-xs font-semibold tracking-wide transition-all duration-300 " + (active ? "bg-[#26787C] text-white shadow-md shadow-[#26787C]/30" : "bg-white border border-[#B7B7B7] text-[#424242] hover:border-[#26787C] hover:text-[#26787C]");
+                });
+                applyDestFilter();
+            });
+        });
+    }
+
     // toast auto-hide
     var toast = document.querySelector(".toast");
     if (toast) {

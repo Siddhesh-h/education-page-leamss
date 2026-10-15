@@ -6,7 +6,13 @@ use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'hub'])->name('hub');
+
+Route::get('/education', [HomeController::class, 'education'])->name('education');
+Route::get('/education/domestic', [HomeController::class, 'domestic'])->name('education.domestic');
+Route::get('/education/international', [HomeController::class, 'international'])->name('education.international');
+
+Route::get('/migration', [HomeController::class, 'migration'])->name('migration');
 
 Route::get('/course-details/{course}', [CourseController::class, 'show'])->name('course.details');
 

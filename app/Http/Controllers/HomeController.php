@@ -7,7 +7,25 @@ use Illuminate\Contracts\View\View;
 
 class HomeController extends Controller
 {
-    public function index(): View
+    public function hub(): View
+    {
+        return view('hub', [
+            'count' => Course::count(),
+        ]);
+    }
+
+    public function education(): View
+    {
+        $allCourses = Course::orderBy('sort')->get();
+
+        return view('education', [
+            'count' => $allCourses->count(),
+            'minFee' => $allCourses->min('fee_per_semester'),
+            'universities' => $allCourses->pluck('university')->unique()->values(),
+        ]);
+    }
+
+    public function domestic(): View
     {
         $query = Course::query()->orderBy('sort');
 
@@ -39,7 +57,7 @@ class HomeController extends Controller
         $courses = $query->get();
         $allCourses = Course::orderBy('sort')->get();
 
-        return view('home', [
+        return view('domestic', [
             'courses' => $courses,
             'allCourses' => $allCourses,
             'count' => $allCourses->count(),
@@ -51,5 +69,15 @@ class HomeController extends Controller
             'degree' => (string) request('degree', 'All'),
             'sort' => $sort,
         ]);
+    }
+
+    public function international(): View
+    {
+        return view('international');
+    }
+
+    public function migration(): View
+    {
+        return view('migration');
     }
 }

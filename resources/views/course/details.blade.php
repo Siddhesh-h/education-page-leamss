@@ -8,9 +8,9 @@
     <div class="absolute -top-24 -left-32 w-[440px] h-[440px] rounded-full bg-[#FFE9E0] blur-[130px] pointer-events-none"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         <nav class="font-mono-brand text-[11px] uppercase tracking-[0.16em] text-[#696969] mb-8" data-testid="detail-breadcrumb">
-            <a href="{{ route('home') }}" class="hover:text-[#FE570F] transition-colors">Home</a>
+            <a href="{{ route('hub') }}" class="hover:text-[#FE570F] transition-colors">Home</a>
             <span class="mx-2 text-[#B7B7B7]">/</span>
-            <a href="{{ route('home') }}#catalog" class="hover:text-[#FE570F] transition-colors">Courses</a>
+            <a href="{{ route('education.domestic') }}#catalog" class="hover:text-[#FE570F] transition-colors">Courses</a>
             <span class="mx-2 text-[#B7B7B7]">/</span>
             <span class="text-[#FE570F]">{{ $course->degree_type }}</span>
         </nav>
